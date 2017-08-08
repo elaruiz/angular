@@ -1,0 +1,15 @@
+.modal-dialog {
+	font-family: "Helvetica", Times, serif;
+	width: 50%;
+}
+thead {
+	background-color: #7abac3;
+}
+.panel-heading{
+	background-color: #7abac3 !important;
+}
+
+.modal-body {
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
+}
