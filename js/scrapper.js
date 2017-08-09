@@ -7,12 +7,11 @@ angular.module('TableApp', ['TableApp.controllers','datatables']);
     $http({
             method: 'GET',
             url: url,
+            crossDomain: true,
             headers: { 
             	'Content-Type': 'application/x-www-form-urlencoded'
             }
         }).then(function (data) {
-            //console.log('status', status);
-            console.log('data', data.data.data);
             $scope.scrapperList = data.data.data;
         });
 	      
