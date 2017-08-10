@@ -23,7 +23,15 @@ angular.module('TableApp', ['TableApp.controllers','datatables']);
   .controller("modalController", ["$scope", function($scope) {
     $scope.selRow = function(row) {
       $scope.selected_row = row;
-      angular.element('#myModal').modal();
+      var obj = row.data;
+        $scope.object = {};
+
+        for (key in obj) {
+            if (obj.hasOwnProperty(key) && typeof(obj[key]) !== "object" && key !== "id") {
+                $scope.object[key] = obj[key];
+            }
+        }
+        angular.element('#myModal').modal();
     }
     $scope.isSelected = function(row) {
       return $scope.selected_ === row;

@@ -40,40 +40,24 @@
       <div class="modal-body">
 
         <div class="panel-group">
-          <div class="panel panel-default">
+
+          <div ng-repeat="(key, value) in object" class="panel panel-default">
             <div class = "panel-heading">
-                <h3 class = "panel-title">Url</h3>
+                <h3 class = "panel-title">{{key}}</h3>
              </div>
-            <div class="panel-body">{{selected_row.url}}</div>
-          </div>
-          <div class="panel panel-default">
-            <div class = "panel-heading">
-                <h3 class = "panel-title">Address</h3>
-             </div>
-            <div class="panel-body">{{selected_row.data.address}}</div>
-          </div>
-          <div class="panel panel-default">
-            <div class = "panel-heading">
-                <h3 class = "panel-title">Location</h3>
-             </div>
-            <div class="panel-body">Lat: {{selected_row.data.latitude}}</div>
-            <div class="panel-body">Lon: {{selected_row.data.longitude}}</div>
-          </div>
-          <div class="panel panel-default">
-            <div class = "panel-heading">
-                <h3 class = "panel-title">Bathrooms</h3>
-             </div>
-            <div class="panel-body">{{selected_row.data.bathrooms}}</div>
+            <div class="panel-body">{{value}}</div>
           </div>
 
-          <div class = "panel panel-default">
+          <div ng-if="selected_row.extra" class = "panel panel-default">
              <div class = "panel-heading">
                 <h3 class = "panel-title">Extras</h3>
              </div>
-             <ul class = "list-group">
-              <li class = "list-group-item" ng-repeat="row in selected_row.extra">{{row.value}}</li>
-            </ul>
-             
+            <table class="table table-bordered table-condensed">
+              <tr ng-repeat="row in selected_row.extra">
+                <th>{{row.name}}</th>
+                <td>{{row.value}}</td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
